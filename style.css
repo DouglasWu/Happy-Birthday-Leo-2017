@@ -1,0 +1,181 @@
+@charset "UTF-8";
+* {
+  position: relative;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica, "微軟正黑體";
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background-color: #D3CDCD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.envelope {
+  width: 500px;
+  height: 300px;
+  border-radius: 0 0 15px 15px;
+  border: 5px solid #D1BE9C;
+  border-top: none;
+  background-color: #F9EAE1;
+  box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.3);
+}
+.envelope .inner {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.envelope .inner.opened {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+.envelope .inner:after {
+  content: "";
+  position: absolute;
+  width: 283.33333px;
+  height: 250px;
+  background: #D1BE9C;
+  top: -125px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(-30.96376deg) skew(28.07249deg);
+          transform: translateX(-50%) rotate(-30.96376deg) skew(28.07249deg);
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.letter {
+  width: 500px;
+  height: 0px;
+  border-radius: 0;
+  -webkit-transform: translateY(-150px);
+          transform: translateY(-150px);
+  background-color: #f9fcfc;
+  position: absolute;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: 0px solid rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+.letter.opened {
+  -webkit-transform: translateY(-300px);
+          transform: translateY(-300px);
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.letter.enlarge {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  height: 600px;
+  max-width: 100%;
+}
+.letter .text {
+  position: relative;
+  margin: 70px 50px;
+  font-size: 18px;
+  line-height: 35px;
+  color: #7f888f;
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+.letter .text p {
+  display: none;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #E6EBE0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: calc(50% + 200px);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.button:hover {
+  box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+
+.letter.opened .close {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0.3;
+  border-bottom: none;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.3s linear 0.1s;
+  transition: opacity 0.2s, -webkit-transform 0.3s linear 0.1s;
+  transition: opacity 0.2s, transform 0.3s linear 0.1s;
+  transition: opacity 0.2s, transform 0.3s linear 0.1s, -webkit-transform 0.3s linear 0.1s;
+}
+.close:hover {
+  opacity: 0.8;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
